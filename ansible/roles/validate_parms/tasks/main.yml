@@ -26,7 +26,7 @@
 
 - name: Verify sno_domain_name parameter
   assert:
-    that: 'sno_domain_name is defined and sno_domain_name is string and sno_domain_name is regex("^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.[a-zA-Z]{2,}$")'
+    that: 'sno_domain_name is defined and sno_domain_name is string and sno_domain_name is regex("^(?!-)[A-Za-z0-9-]+([\-\.]{1}[a-z0-9]+)*\.[A-Za-z]{2,6}$")'
     fail_msg: "variable sno_domaon_name musted be defined and be in the format of a domain "
 
 - name: "Verify that remaining variables are defined and have valid format"
